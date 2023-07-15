@@ -23,10 +23,10 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3.5.3
       - name: Print repo structure # DEBUG
-        run: ls -alR
+        run: ls -lR
       - name: Install dependencies
         run: pip install -r ./requirements.txt
       - name: Print dependencies # DEBUG
         run: pip freeze
       - name: Run Flask server
-        run: flask lask --app game-of-life/app.py --debug run --host 0.0.0.0 --port 5000
+        run: flask --app game-of-life/app.py --debug run --host 0.0.0.0 --port 5000
