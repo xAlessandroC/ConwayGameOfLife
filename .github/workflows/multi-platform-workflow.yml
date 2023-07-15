@@ -43,7 +43,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3.5.3
       - name: Print repo structure # DEBUG
-        run: ls -lR
+        run: dir && dir gameoflife && dir test
       - name: Install dependencies
         run: pip install -r ./requirements.txt
       - name: Print dependencies # DEBUG
