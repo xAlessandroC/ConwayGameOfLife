@@ -1,0 +1,32 @@
+name: Worflow to test support on multiple platforms
+
+
+on:
+  push: # Triggers the workflow on push for whatever branch
+    paths-ignore: # Pushes that change only these file won't start the workflow
+      - 'README.md'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  ubuntu-support:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set up Python 3.10.9
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.10.9
+      - name: Print the version of Python # DEBUG
+        run: python --version
+      - name: Checkout the repository
+        uses: actions/checkout@v3.5.3
+      - name: Print repo structure # DEBUG
+        run: ls -alR
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+      - name: Print dependencies # DEBUG
+        run: pip freeze
+      - name: Run Flask server
+        run: flask lask --app game-of-life/app.py --debug run --host 0.0.0.0 --port 5000
