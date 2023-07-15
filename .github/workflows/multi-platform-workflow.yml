@@ -29,4 +29,4 @@ jobs:
       - name: Print dependencies # DEBUG
         run: pip freeze
       - name: Run Flask server tests
-        run: python -m unittest test\app_test.py
+        run: python -m unittest test/app_test.py
