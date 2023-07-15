@@ -28,5 +28,5 @@ jobs:
         run: pip install -r ./requirements.txt
       - name: Print dependencies # DEBUG
         run: pip freeze
-      - name: Run Flask server
-        run: flask --app game-of-life/app.py --debug run --host 0.0.0.0 --port 5000
+      - name: Run Flask server tests
+        run: python -m unittest test\app_test.py
