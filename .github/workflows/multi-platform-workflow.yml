@@ -84,7 +84,9 @@ jobs:
         run: pip install -r ./requirements.txt
       - name: Build image
         run: docker build -t "alecalv/game-of-life:latest" .
+      - name: Tag also for Github
+        run: docker tag alecalv/game-of-life:latest ghcr.io/xalessandroc/game-of-life:latest
       - name: Log in to Github registry
         run: echo "${{ secrets.REGISTRY_TOKEN }}" | docker login ghcr.io -u xAlessandroC --password-stdin
       - name: Deliver on Github registry
-        run: docker push alecalv/game-of-life:latest
+        run: docker ghcr.io/xalessandroc/game-of-life:latest
