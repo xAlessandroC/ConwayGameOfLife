@@ -89,4 +89,4 @@ jobs:
       - name: Log in to Github registry
         run: echo "${{ secrets.REGISTRY_TOKEN }}" | docker login ghcr.io -u xAlessandroC --password-stdin
       - name: Deliver on Github registry
-        run: docker ghcr.io/xalessandroc/game-of-life:latest
+        run: docker push ghcr.io/xalessandroc/game-of-life:latest
