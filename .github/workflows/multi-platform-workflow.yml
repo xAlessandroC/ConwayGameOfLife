@@ -1,0 +1,78 @@
+name: Worflow to test support on multiple platforms
+
+
+on:
+  push: # Triggers the workflow on push for whatever branch
+    paths-ignore: # Pushes that change only these file won't start the workflow
+      - 'README.md'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  linux-based-support:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-22.04, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Set up Python 3.10.9
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.10.9
+      - name: Print the version of Python # DEBUG
+        run: python --version
+      - name: Checkout the repository
+        uses: actions/checkout@v3.5.3
+      - name: Print repo structure # DEBUG
+        run: ls -lR
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+      - name: Print dependencies # DEBUG
+        run: pip freeze
+      - name: Run Flask server tests
+        run: python -m unittest test/app_test.py
+
+  windows-support:
+    runs-on: windows-latest
+    steps:
+      - name: Set up Python 3.10.9
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.10.9
+      - name: Print the version of Python # DEBUG
+        run: python --version
+      - name: Checkout the repository
+        uses: actions/checkout@v3.5.3
+      - name: Print repo structure # DEBUG
+        run: dir && dir gameoflife && dir test
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+      - name: Print dependencies # DEBUG
+        run: pip freeze
+      - name: Run Flask server tests
+        run: python -m unittest test/app_test.py
+
+  dockerize:
+    runs-on: ubuntu-22.04
+    needs:
+      - linux-based-support
+    steps:
+      - name: Set up Python 3.10.9
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.10.9
+      - name: Checkout the repository
+        uses: actions/checkout@v3.5.3
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+      - name: Build image
+        run: docker build -t "alecalv/game-of-life:latest" .
+      - name: Tag also for Github
+        run: docker tag alecalv/game-of-life:latest ghcr.io/xalessandroc/game-of-life:latest
+      - name: Log in to Github registry
+        run: echo "${{ secrets.REGISTRY_TOKEN }}" | docker login ghcr.io -u xAlessandroC --password-stdin
+      - name: Deliver on Github registry
+        run: docker push ghcr.io/xalessandroc/game-of-life:latest
