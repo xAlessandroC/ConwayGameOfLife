@@ -50,3 +50,23 @@ jobs:
         run: pip freeze
       - name: Run Flask server tests
         run: python -m unittest test/app_test.py
+
+  mac-support:
+    runs-on: macos-latest
+    steps:
+      - name: Set up Python 3.10.9
+        uses: actions/setup-python@v4.7.0
+        with:
+          python-version: 3.10.9
+      - name: Print the version of Python # DEBUG
+        run: python --version
+      - name: Checkout the repository
+        uses: actions/checkout@v3.5.3
+      - name: Print repo structure # DEBUG
+        run: ls -lR
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+      - name: Print dependencies # DEBUG
+        run: pip freeze
+      - name: Run Flask server tests
+        run: python -m unittest test/app_test.py
