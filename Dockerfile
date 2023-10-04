@@ -16,5 +16,6 @@ RUN pip install -r requirements.txt
 # Copy app source
 COPY . .
 
+WORKDIR /app/gameoflife
 EXPOSE 5000
-CMD [ "flask", "--app", "game-of-life/app.py", "--debug", "run", "--host", "0.0.0.0", "--port", "5000"]
+CMD [ "flask", "--app", "app", "--debug", "run", "--host", "0.0.0.0", "--port", "5000"]

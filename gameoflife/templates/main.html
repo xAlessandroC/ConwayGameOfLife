@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Game Of Life</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/sketch.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/cell.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/grid.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/quadtree.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/rectangle.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/utility.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/pattern.js') }}"></script>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/normalLogic.js') }}"></script>
+
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <p id="framerate" style="display:inline"></p>
+      <p id="generation" style="display:inline"></p>
+    </div>
+    </br>
+    <div>
+      <input type="button" onclick="nextGen()" value="Next" />
+      <input type="button" onclick="setAutomatic()" value="setAutomatic" />
+      <!-- <input type="button" onclick="showChart()" value="Chart" /> -->
+      <select id="pattern" onchange="setPattern(this.value)" >
+        <option value="insert">Single</option>
+        <option value="glider">Glider</option>
+        <option value="oscillator">Oscillator</option>
+        <option value="10row">10row</option>
+        <option value="tumbler">Tumbler</option>
+      </select>
+      <!-- <div id="chartContainer" style="height: 300px; width: 100%;position:absolute;top:800px"></div> -->
+    </div>
+    </br>
+  </body>
+</html>
