@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-![](https://zenodo.org/badge/doi/10.5281/zenodo.8475.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10044376.svg)](https://doi.org/10.5281/zenodo.10044376)
 
 ## Overview
 The project aims to realize a custom implementation of the famous Conway's Game of Life automata as web server by using Python and Flask.
