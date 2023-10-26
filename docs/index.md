@@ -94,3 +94,9 @@ The control panel is composed by the following elements:
 
 
 # How to Cite
+This project has been developed for the course "DevOps Meets Scientific Research" held by Prof. Danilo Pianini at the University of Bologna.
+
+It is possible to cite the work and the repository on Zenodo using the following format:
+```
+Alessandro Calvio. (2023). xAlessandroC/ConwayGameOfLife: v0.0.2 (v0.0.2). Zenodo. https://doi.org/10.5281/zenodo.10044271
+```
