@@ -10,7 +10,7 @@ These brief instructions will help you get started with the tool.
 {: .fs-6 .fw-300 }
 
 [Get started now](#getting-started){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View it on GitHub][UPS repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
+[View it on GitHub][REPO]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
@@ -100,3 +100,5 @@ It is possible to cite the work and the repository on Zenodo using the following
 ```
 Alessandro Calvio. (2023). xAlessandroC/ConwayGameOfLife: v0.0.2 (v0.0.2). Zenodo. https://doi.org/10.5281/zenodo.10044271
 ```
+
+[REPO]:https://github.com/xAlessandroC/ConwayGameOfLife
