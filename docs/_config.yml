@@ -1,0 +1,8 @@
+title: Conway Game of Life
+description: A quadtree-based Conway's Game of Life using Python and Flask.
+theme: just-the-docs
+
+url: https://xalessandroc.github.io/ConwayGameOfLife/
+
+aux_links:
+  Template Repository: https://github.com/just-the-docs/just-the-docs-template
